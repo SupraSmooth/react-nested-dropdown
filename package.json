@@ -1,5 +1,5 @@
 {
-  "name": "react-nested-dropdown",
+  "name": "@suprasmooth/react-nested-dropdown",
   "version": "0.1.0",
   "private": false,
   "description": "A simple react nested dropdown component",

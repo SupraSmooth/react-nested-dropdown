@@ -18,8 +18,9 @@ const NestedDropdownButton = ({
 	onClick,
 	children,
 }: PropsWithChildren<NestedDropdownButtonProps>): ReactElement => {
-	const classNameBase =
-		'w-full inline-flex justify-left items-center bg-white whitespace-nowrap';
+	const classNameBase = `w-full inline-flex justify-left items-center bg-white whitespace-nowrap ${
+		isDisabled ? 'text-gray-300' : ''
+	}`;
 
 	const handleOnClick = (): void => {
 		if (isDisabled) {

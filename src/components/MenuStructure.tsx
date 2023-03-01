@@ -30,6 +30,7 @@ const MenuStructure: NestedDropdownMenuStructure = [
 	{
 		label: 'DevOps',
 		isDisabled: true,
+		hasSeparator: true,
 	},
 	{
 		label: 'Languages',

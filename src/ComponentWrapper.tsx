@@ -20,7 +20,7 @@ const buttonIcon = (
 function ComponentWrapper() {
 	return (
 		<>
-			<div className="antialiased p-10 flex">
+			<div className="antialiased p-20 pb-52 inline-flex">
 				<NestedDropdown menu={MenuStructure}>
 					<NestedDropdownButton>
 						Dropdown
@@ -31,12 +31,19 @@ function ComponentWrapper() {
 
 			<hr />
 
-			<NestedDropdownButton
-				href="/"
-				className="ml-10 mt-10 w-auto"
-			>
-				Some Button Link in the same style
-			</NestedDropdownButton>
+			<div className="antialiased p-10 inline-flex">
+				<NestedDropdownButton href="/">
+					Some Button Link in the same style
+				</NestedDropdownButton>
+			</div>
+
+			<hr />
+
+			<div className="antialiased p-10 inline-flex">
+				<NestedDropdown menu={MenuStructure}>
+					{buttonIcon}
+				</NestedDropdown>
+			</div>
 		</>
 	);
 }

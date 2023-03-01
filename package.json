@@ -5,10 +5,12 @@
   "description": "A simple react nested dropdown component",
   "keywords": [
     "react",
-    "dropdown",
     "simple",
     "nested",
-    "component"
+    "dropdown",
+    "component",
+    "typescript",
+    "module"
   ],
   "homepage": "https://github.com/SupraSmooth/react-nested-dropdown#readme",
   "bugs": {
@@ -41,10 +43,12 @@
     "test": "test"
   },
   "dependencies": {
+    "normalize.css": "^8.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@types/node": "^18.14.2",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@typescript-eslint/eslint-plugin": "^5.54.0",
@@ -52,6 +56,7 @@
     "@vitejs/plugin-react": "^3.1.0",
     "autoprefixer": "^10.4.13",
     "eslint": "^8.35.0",
+    "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",

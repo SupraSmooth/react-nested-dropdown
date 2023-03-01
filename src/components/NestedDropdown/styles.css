@@ -1,0 +1,6 @@
+li > ul {
+  transform: translatex(100%) scale(0);
+}
+li:hover > ul {
+  transform: translatex(100%) scale(1);
+}

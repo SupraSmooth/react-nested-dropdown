@@ -1,1 +1,3 @@
-export { Dropdown } from "./Dropdown";
+import NestedDropdown from './NestedDropdown';
+
+export default NestedDropdown;

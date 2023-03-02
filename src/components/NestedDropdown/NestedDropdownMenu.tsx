@@ -1,19 +1,11 @@
 import { ReactElement } from 'react';
-import NestedDropdownButton from './NestedDropdownButton';
-
-export type NestedDropdownMenuStructure = {
-	icon?: JSX.Element;
-	label: string;
-	tooltip?: string;
-	href?: string;
-	isDisabled?: boolean;
-	hasSeparator?: boolean;
-	onClick?: () => void;
-	children?: NestedDropdownMenuStructure;
-}[];
+import NestedDropdownButton from './MenuTriggers/NestedDropdownButton';
+import MenuTypeSeparator from './MenuTypes/MenuTypeSeparator';
+import MenuTypeLabel from './MenuTypes/MenuTypeLabel';
+import { NestedDropdownStructure, MenuItemType } from './types';
 
 export type NestedDropdownMenuProps = {
-	menu?: NestedDropdownMenuStructure;
+	menu?: NestedDropdownStructure;
 	isSubmenu?: boolean;
 };
 
@@ -31,55 +23,72 @@ const NestedDropdownMenu = ({
 
 	return (
 		<ul
-			id="menu"
 			aria-hidden="true"
-			className={`bg-white border group-hover:block absolute origin-top min-w-32 ${subMenuClasses}`}
+			className={`hidden bg-white border group-hover:block absolute origin-top min-w-32 ${subMenuClasses}`}
 		>
 			{menu?.map((menuItem) => {
 				const hasChildren = menuItem.children !== undefined;
 
-				return (
-					<>
-						<li
-							className={hasChildren ? 'relative' : ''}
-							key={menuItem.label}
-						>
-							{!hasChildren && (
-								<NestedDropdownButton
-									title={menuItem.tooltip}
-									isDisabled={menuItem.isDisabled}
-									href={menuItem.href}
-									onClick={menuItem.onClick}
-								>
-									{menuItem.icon}
-									{menuItem.label}
-								</NestedDropdownButton>
-							)}
-							{hasChildren && (
-								<>
+				switch (menuItem.type ?? MenuItemType.Link) {
+					case MenuItemType.Link:
+						return (
+							<li
+								className={hasChildren ? 'relative' : ''}
+								key={menuItem.key}
+							>
+								{!hasChildren && (
 									<NestedDropdownButton
+										className={menuItem.className}
 										title={menuItem.tooltip}
+										isDisabled={menuItem.isDisabled}
+										href={menuItem.href}
+										onClick={menuItem.onClick}
 									>
+										{menuItem.prefixedComponent}
 										{menuItem.label}
-										<svg
-											className="fill-current h-4 w-4 -rotate-90"
-											xmlns="http://www.w3.org/2000/svg"
-											viewBox="0 0 20 20"
-										>
-											<path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-										</svg>
+										{menuItem.suffixedComponent}
 									</NestedDropdownButton>
+								)}
 
-									<NestedDropdownMenu
-										menu={menuItem.children}
-										isSubmenu
-									/>
-								</>
-							)}
-						</li>
-						{menuItem.hasSeparator && <hr className="my-2" />}
-					</>
-				);
+								{hasChildren && (
+									<>
+										<NestedDropdownButton
+											className={menuItem.className}
+											title={menuItem.tooltip}
+											isDisabled={menuItem.isDisabled}
+										>
+											{menuItem.prefixedComponent}
+											{menuItem.label}
+											{menuItem.suffixedComponent}
+										</NestedDropdownButton>
+
+										{!menuItem.isDisabled && (
+											<NestedDropdownMenu
+												menu={menuItem.children}
+												isSubmenu
+											/>
+										)}
+									</>
+								)}
+							</li>
+						);
+					case MenuItemType.Separator:
+						return (
+							<MenuTypeSeparator
+								key={menuItem.key}
+								menuItem={menuItem}
+							/>
+						);
+					case MenuItemType.Label:
+						return (
+							<MenuTypeLabel
+								key={menuItem.key}
+								menuItem={menuItem}
+							/>
+						);
+					default:
+						return null;
+				}
 			})}
 		</ul>
 	);

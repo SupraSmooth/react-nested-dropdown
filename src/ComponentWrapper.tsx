@@ -1,30 +1,14 @@
 import NestedDropdown from './components/NestedDropdown';
-import NestedDropdownButton from './components/NestedDropdown/NestedDropdownButton';
+import NestedDropdownButton from './components/NestedDropdown/MenuTriggers/NestedDropdownButton';
 import MenuStructure from './components/MenuStructure';
-
-const buttonIcon = (
-	<svg
-		className="h-5 w-5"
-		viewBox="0 0 20 20"
-		fill="currentColor"
-		aria-hidden="true"
-	>
-		<path
-			fillRule="evenodd"
-			d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-			clipRule="evenodd"
-		/>
-	</svg>
-);
 
 function ComponentWrapper() {
 	return (
 		<>
-			<div className="antialiased p-20 pb-52 inline-flex">
+			<div className="antialiased p-20 pb-72 inline-flex">
 				<NestedDropdown menu={MenuStructure}>
-					<NestedDropdownButton>
-						Dropdown
-						{buttonIcon}
+					<NestedDropdownButton className="px-3 py-1">
+						Dropdown ⬇️
 					</NestedDropdownButton>
 				</NestedDropdown>
 			</div>
@@ -32,17 +16,22 @@ function ComponentWrapper() {
 			<hr />
 
 			<div className="antialiased p-10 inline-flex">
-				<NestedDropdownButton href="/">
-					Some Button Link in the same style
-				</NestedDropdownButton>
-			</div>
-
-			<hr />
-
-			<div className="antialiased p-10 inline-flex">
-				<NestedDropdown menu={MenuStructure}>
-					{buttonIcon}
-				</NestedDropdown>
+				<div className="pr-5">
+					<NestedDropdownButton
+						className="py-1 px-4"
+						href="/"
+					>
+						Some Link in the same style
+					</NestedDropdownButton>
+				</div>
+				<div>
+					<NestedDropdownButton
+						className="py-1 px-4"
+						onClick={() => console.log('Clicked!')}
+					>
+						Some Button in the same style
+					</NestedDropdownButton>
+				</div>
 			</div>
 		</>
 	);

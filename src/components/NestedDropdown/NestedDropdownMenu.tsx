@@ -1,8 +1,13 @@
 import { ReactElement } from 'react';
-import NestedDropdownButton from './MenuTriggers/NestedDropdownButton';
-import MenuTypeSeparator from './MenuTypes/MenuTypeSeparator';
-import MenuTypeLabel from './MenuTypes/MenuTypeLabel';
-import { NestedDropdownStructure, MenuItemType } from './types';
+import {
+	NestedDropdownStructure,
+	MenuItemType,
+} from '@/components/NestedDropdown/types';
+import NestedDropdownButton from '@/components/NestedDropdown/MenuTriggers/NestedDropdownButton';
+import MenuTypeSeparator from '@/components/NestedDropdown/MenuTypes/MenuTypeSeparator';
+import MenuTypeLabel from '@/components/NestedDropdown/MenuTypes/MenuTypeLabel';
+
+import styles from '@/components/NestedDropdown/NestedDropdownMenu.module.scss';
 
 export type NestedDropdownMenuProps = {
 	menu?: NestedDropdownStructure;
@@ -24,7 +29,7 @@ const NestedDropdownMenu = ({
 	return (
 		<ul
 			aria-hidden="true"
-			className={`hidden bg-white border group-hover:block absolute origin-top min-w-32 ${subMenuClasses}`}
+			className={`${subMenuClasses} ${styles.hiddens}`}
 		>
 			{menu?.map((menuItem) => {
 				const hasChildren = menuItem.children !== undefined;

@@ -1,0 +1,9 @@
+.hover {
+   :global(li) > ul {
+    transform: translatex(100%) scale(0);
+
+    &:hover > ul {
+      transform: translatex(100%) scale(1);
+    }
+  }
+}

@@ -1,11 +1,15 @@
-import NestedDropdown from './components/NestedDropdown';
-import NestedDropdownButton from './components/NestedDropdown/MenuTriggers/NestedDropdownButton';
-import MenuStructure from './components/MenuStructure';
+import { ReactElement } from 'react';
+import NestedDropdown from '@/components/NestedDropdown/NestedDropdown';
+import MenuStructure from '@/components/MenuStructure';
+import NestedDropdownButton from '@/components/NestedDropdown/MenuTriggers/NestedDropdownButton';
 
-function ComponentWrapper() {
+import styles from './ComponentWrapper.module.scss';
+// import '@/components/NestedDropdown/styles.css';
+
+const ComponentWrapper = (): ReactElement => {
 	return (
 		<>
-			<div className="antialiased p-20 pb-72 inline-flex">
+			<div className={styles.preview}>
 				<NestedDropdown menu={MenuStructure}>
 					<NestedDropdownButton className="px-3 py-1">
 						Dropdown ⬇️
@@ -35,6 +39,6 @@ function ComponentWrapper() {
 			</div>
 		</>
 	);
-}
+};
 
 export default ComponentWrapper;

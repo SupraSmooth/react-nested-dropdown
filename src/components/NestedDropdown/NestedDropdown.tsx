@@ -1,8 +1,8 @@
-import './styles.css';
-
 import { PropsWithChildren, ReactElement } from 'react';
-import NestedDropdownMenu from './NestedDropdownMenu';
-import { NestedDropdownStructure } from './types';
+import { NestedDropdownStructure } from '@/components/NestedDropdown/types';
+import NestedDropdownMenu from '@/components/NestedDropdown/NestedDropdownMenu';
+
+import styles from './NestedDropdown.module.scss';
 
 type NestedDropdownProps = {
 	menu?: NestedDropdownStructure;
@@ -15,7 +15,11 @@ const NestedDropdown = ({
 	children,
 }: PropsWithChildren<NestedDropdownProps>): ReactElement => {
 	return (
-		<div className={['group inline-block', className].join(' ')}>
+		<div
+			className={['group inline-block', className, styles.hover].join(
+				' '
+			)}
+		>
 			{children}
 
 			<NestedDropdownMenu menu={menu} />

@@ -6,6 +6,8 @@ export enum MenuItemType {
 	Label = 'LABEL',
 }
 
+export type NestedDropdownStructure = MenuItem[];
+
 export type MenuItem = {
 	key: Key;
 	type?: MenuItemType;
@@ -18,7 +20,5 @@ export type MenuItem = {
 	isDisabled?: boolean;
 	hasSeparator?: boolean;
 	onClick?: () => void;
-	children?: MenuItem[];
+	children?: NestedDropdownStructure;
 };
-
-export type NestedDropdownStructure = MenuItem[];

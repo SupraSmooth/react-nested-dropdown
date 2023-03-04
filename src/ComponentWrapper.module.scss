@@ -1,3 +1,19 @@
 .preview {
-  @apply antialiased p-20 pb-72 inline-flex
+  @apply nd-antialiased nd-p-20 nd-pb-72 nd-inline-flex
+}
+
+.dropdownButton {
+  @apply nd-px-3 nd-py-1
+}
+
+.buttonPreviewWrapper {
+  @apply nd-antialiased nd-p-10 nd-inline-flex
+}
+
+.firstButtonContainer {
+  @apply nd-mr-5
+}
+
+.buttonContainer {
+  @apply nd-py-1 nd-px-4
 }

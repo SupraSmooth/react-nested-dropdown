@@ -14,9 +14,11 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "declaration": true,
     "typeRoots": ["./dist/index.d.ts"],
-    "jsx": "react-jsx",
+    "jsx": "react-jsxdev",
+    "outDir": "dist",
+    "declaration": true,
+    "declarationMap": true,
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]

@@ -3,26 +3,22 @@ import react from '@vitejs/plugin-react';
 import path, { resolve } from 'path';
 import dts from 'vite-plugin-dts';
 import tailwindcss from 'tailwindcss';
+// @ts-ignore: json loading is enabled by ts config
+import * as packageJson from './package.json'
 
-// https://vitejs.dev/config/
 export default defineConfig({
 	build: {
 		lib: {
-			entry: path.resolve(__dirname, 'index.ts'),
+			entry: resolve(__dirname, 'src', 'index.ts'),
+      		formats: ['es', 'cjs'],
 			name: 'react-nested-dropdown',
-			fileName: (format) => `index.${format}.js`,
+			fileName: (ext) => `index.${ext}.js`,
 		},
 		rollupOptions: {
-			external: ['react', 'react-dom', 'tailwindcss'],
-			output: {
-				globals: {
-					react: 'React',
-					'react-dom': 'reactDOM',
-				},
-			},
+			external: [...Object.keys(packageJson.peerDependencies)]
 		},
-		sourcemap: true,
-		emptyOutDir: true,
+		target: 'esnext',
+		sourcemap: true
 	},
 	css: {
 		postcss: {

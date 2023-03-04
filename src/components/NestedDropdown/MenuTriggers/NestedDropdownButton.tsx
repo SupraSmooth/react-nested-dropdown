@@ -1,9 +1,11 @@
 import { CSSProperties, PropsWithChildren, ReactElement } from 'react';
 
+import styles from './NestedDropdownButton.module.scss';
+
 export type NestedDropdownButtonProps = {
 	title?: string;
 	className?: string;
-	styles?: CSSProperties;
+	additionalStyles?: CSSProperties;
 	href?: string;
 	isDisabled?: boolean;
 	onClick?: () => void;
@@ -12,15 +14,13 @@ export type NestedDropdownButtonProps = {
 const NestedDropdownButton = ({
 	title,
 	className,
-	styles,
+	additionalStyles,
 	href,
 	isDisabled = false,
 	onClick,
 	children,
 }: PropsWithChildren<NestedDropdownButtonProps>): ReactElement => {
-	const classNameBase = `w-full inline-flex justify-left items-center bg-white whitespace-nowrap ${
-		isDisabled ? 'text-gray-300' : ''
-	}`;
+	const classNameBase = `${styles.base} ${isDisabled ? styles.disabled : ''}`;
 
 	const handleOnClick = (): void => {
 		if (isDisabled) {
@@ -36,7 +36,7 @@ const NestedDropdownButton = ({
 				className={[classNameBase, className].join(' ')}
 				href={href}
 				title={title}
-				style={styles}
+				style={additionalStyles}
 				onClick={handleOnClick}
 			>
 				{children}
@@ -51,9 +51,9 @@ const NestedDropdownButton = ({
 			className={[
 				classNameBase,
 				className,
-				onClick ? '' : 'hover:cursor-default',
+				onClick ? 'hover:nd-cursor-pointer' : 'hover:nd-cursor-default',
 			].join(' ')}
-			style={styles}
+			style={additionalStyles}
 			aria-disabled={isDisabled}
 			disabled={isDisabled}
 			onClick={handleOnClick}

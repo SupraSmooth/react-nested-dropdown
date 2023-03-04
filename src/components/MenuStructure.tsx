@@ -8,25 +8,25 @@ const Menu: NestedDropdownStructure = [
 		key: '0',
 		label: 'Programming basic',
 		tooltip: 'This is a tooltip!',
-		className: 'px-3 py-1',
+		className: 'nd-px-3 nd-py-1',
 	},
 	{
 		key: '1',
 		label: 'Programming advanced',
 		suffixedComponent: ChevronRight,
-		className: 'px-3 py-1',
+		className: 'nd-px-3 nd-py-1',
 		children: [
 			{
 				key: '1-0',
 				prefixedComponent: SomePrefixedIcon,
 				label: 'junior',
-				className: 'px-3 py-1',
+				className: 'nd-px-3 nd-py-1',
 			},
 			{
 				key: '1-1',
 				prefixedComponent: SomePrefixedIcon,
 				label: 'with experience',
-				className: 'px-3 py-1',
+				className: 'nd-px-3 nd-py-1',
 				suffixedComponent: ChevronRight,
 				children: [
 					{

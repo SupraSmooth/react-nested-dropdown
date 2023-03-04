@@ -15,11 +15,7 @@ const NestedDropdown = ({
 	children,
 }: PropsWithChildren<NestedDropdownProps>): ReactElement => {
 	return (
-		<div
-			className={['group inline-block', className, styles.hover].join(
-				' '
-			)}
-		>
+		<div className={['nd-group', styles.wrapper, className].join(' ')}>
 			{children}
 
 			<NestedDropdownMenu menu={menu} />

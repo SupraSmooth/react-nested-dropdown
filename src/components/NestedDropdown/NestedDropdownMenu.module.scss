@@ -1,3 +1,15 @@
-.hiddens {
-  @apply hidden bg-white border group-hover:block absolute origin-top;
+.dropdownList {
+  @apply nd-hidden nd-bg-white nd-border nd-absolute nd-origin-top nd-list-none nd-m-0;
+}
+
+.submenu {
+  @apply nd-absolute nd-top-0 nd-right-0 nd-origin-top-left
+}
+
+li > ul {
+  transform: translatex(100%) scale(0);
+}
+
+li:hover > ul {
+  transform: translatex(100%) scale(1);
 }

@@ -3,15 +3,17 @@ import NestedDropdown from '@/components/NestedDropdown/NestedDropdown';
 import MenuStructure from '@/components/MenuStructure';
 import NestedDropdownButton from '@/components/NestedDropdown/MenuTriggers/NestedDropdownButton';
 
+// has to be in index.ts as well!
+import '@/components/NestedDropdown/styles.css';
+
 import styles from './ComponentWrapper.module.scss';
-// import '@/components/NestedDropdown/styles.css';
 
 const ComponentWrapper = (): ReactElement => {
 	return (
 		<>
 			<div className={styles.preview}>
 				<NestedDropdown menu={MenuStructure}>
-					<NestedDropdownButton className="px-3 py-1">
+					<NestedDropdownButton className={styles.dropdownButton}>
 						Dropdown ⬇️
 					</NestedDropdownButton>
 				</NestedDropdown>
@@ -19,10 +21,10 @@ const ComponentWrapper = (): ReactElement => {
 
 			<hr />
 
-			<div className="antialiased p-10 inline-flex">
-				<div className="pr-5">
+			<div className={styles.buttonPreviewWrapper}>
+				<div className={styles.firstButtonContainer}>
 					<NestedDropdownButton
-						className="py-1 px-4"
+						className={styles.buttonContainer}
 						href="/"
 					>
 						Some Link in the same style
@@ -30,8 +32,8 @@ const ComponentWrapper = (): ReactElement => {
 				</div>
 				<div>
 					<NestedDropdownButton
-						className="py-1 px-4"
-						onClick={() => console.log('Clicked!')}
+						className={styles.buttonContainer}
+						onClick={() => console.log('Button Clicked!')}
 					>
 						Some Button in the same style
 					</NestedDropdownButton>

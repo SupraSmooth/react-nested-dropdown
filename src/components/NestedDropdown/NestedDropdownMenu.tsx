@@ -22,14 +22,12 @@ const NestedDropdownMenu = ({
 		return null;
 	}
 
-	const subMenuClasses = isSubmenu
-		? 'absolute top-0 right-0 origin-top-left'
-		: '';
-
 	return (
 		<ul
 			aria-hidden="true"
-			className={`${subMenuClasses} ${styles.hiddens}`}
+			className={`group-hover:nd-block ${
+				isSubmenu ? styles.submenu : ''
+			} ${styles.dropdownList}`}
 		>
 			{menu?.map((menuItem) => {
 				const hasChildren = menuItem.children !== undefined;
@@ -38,7 +36,7 @@ const NestedDropdownMenu = ({
 					case MenuItemType.Link:
 						return (
 							<li
-								className={hasChildren ? 'relative' : ''}
+								className={hasChildren ? 'nd-relative' : ''}
 								key={menuItem.key}
 							>
 								{!hasChildren && (

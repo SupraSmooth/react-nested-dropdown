@@ -1,9 +1,26 @@
 .dropdownList {
+  padding-block-start: 0;
+  padding-block-start: 0;
+  padding-inline-start: 0;
+  padding-inline-end: 0;
+
   @apply nd-hidden nd-bg-white nd-border nd-absolute nd-origin-top nd-list-none nd-m-0;
 }
 
-.submenu {
+.dropdownListSubmenu {
   @apply nd-absolute nd-top-0 nd-right-0 nd-origin-top-left
+}
+
+.listItem {
+  @apply nd-w-full nd-flex nd-justify-between
+}
+
+.label {
+  @apply nd-flex nd-flex-1
+}
+
+.relative {
+  @apply nd-relative;
 }
 
 li > ul {

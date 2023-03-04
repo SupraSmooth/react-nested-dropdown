@@ -1,3 +1,9 @@
 .wrapper {
   @apply nd-inline-block;
 }
+
+.ndGroup:hover {
+  :global(.ndGroupChildren) {
+    display: block;
+  }
+}

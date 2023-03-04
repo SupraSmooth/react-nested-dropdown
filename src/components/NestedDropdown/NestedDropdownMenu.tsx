@@ -7,7 +7,7 @@ import NestedDropdownButton from '@/components/NestedDropdown/MenuTriggers/Neste
 import MenuTypeSeparator from '@/components/NestedDropdown/MenuTypes/MenuTypeSeparator';
 import MenuTypeLabel from '@/components/NestedDropdown/MenuTypes/MenuTypeLabel';
 
-import styles from '@/components/NestedDropdown/NestedDropdownMenu.module.scss';
+import styles from './NestedDropdownMenu.module.scss';
 
 export type NestedDropdownMenuProps = {
 	menu?: NestedDropdownStructure;
@@ -25,8 +25,8 @@ const NestedDropdownMenu = ({
 	return (
 		<ul
 			aria-hidden="true"
-			className={`group-hover:nd-block ${
-				isSubmenu ? styles.submenu : ''
+			className={`ndGroupChildren ${
+				isSubmenu ? styles.dropdownListSubmenu : ''
 			} ${styles.dropdownList}`}
 		>
 			{menu?.map((menuItem) => {
@@ -36,7 +36,10 @@ const NestedDropdownMenu = ({
 					case MenuItemType.Link:
 						return (
 							<li
-								className={hasChildren ? 'nd-relative' : ''}
+								className={[
+									styles.listItem,
+									hasChildren ? styles.relative : '',
+								].join(' ')}
 								key={menuItem.key}
 							>
 								{!hasChildren && (
@@ -48,7 +51,9 @@ const NestedDropdownMenu = ({
 										onClick={menuItem.onClick}
 									>
 										{menuItem.prefixedComponent}
-										{menuItem.label}
+										<div className={styles.label}>
+											{menuItem.label}
+										</div>
 										{menuItem.suffixedComponent}
 									</NestedDropdownButton>
 								)}
@@ -61,7 +66,9 @@ const NestedDropdownMenu = ({
 											isDisabled={menuItem.isDisabled}
 										>
 											{menuItem.prefixedComponent}
-											{menuItem.label}
+											<div className={styles.label}>
+												{menuItem.label}
+											</div>
 											{menuItem.suffixedComponent}
 										</NestedDropdownButton>
 

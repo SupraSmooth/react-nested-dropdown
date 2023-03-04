@@ -51,7 +51,7 @@ const NestedDropdownButton = ({
 			className={[
 				classNameBase,
 				className,
-				onClick ? 'hover:nd-cursor-pointer' : 'hover:nd-cursor-default',
+				onClick ? '' : styles.cursorDefault,
 			].join(' ')}
 			style={additionalStyles}
 			aria-disabled={isDisabled}

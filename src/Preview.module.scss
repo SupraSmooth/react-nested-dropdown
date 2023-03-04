@@ -1,3 +1,9 @@
+body {
+  @apply nd-bg-slate-200;
+
+  font-family: 'Roboto', sans-serif;
+}
+
 .preview {
   @apply nd-antialiased nd-p-20 nd-pb-72 nd-inline-flex
 }

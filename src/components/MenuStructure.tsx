@@ -1,5 +1,7 @@
 import { NestedDropdownStructure, MenuItemType } from './NestedDropdown/types';
 
+import styles from './MenuStructure.module.scss';
+
 const ChevronRight = <span className="fill-current ml-auto px-1">👉</span>;
 const SomePrefixedIcon = <span className="pr-1">🚀</span>;
 
@@ -8,38 +10,38 @@ const Menu: NestedDropdownStructure = [
 		key: '0',
 		label: 'Programming basic',
 		tooltip: 'This is a tooltip!',
-		className: 'nd-px-3 nd-py-1',
+		className: styles.dummyPadding,
 	},
 	{
 		key: '1',
 		label: 'Programming advanced',
 		suffixedComponent: ChevronRight,
-		className: 'nd-px-3 nd-py-1',
+		className: styles.dummyPadding,
 		children: [
 			{
 				key: '1-0',
 				prefixedComponent: SomePrefixedIcon,
 				label: 'junior',
-				className: 'nd-px-3 nd-py-1',
+				className: styles.dummyPadding,
 			},
 			{
 				key: '1-1',
 				prefixedComponent: SomePrefixedIcon,
 				label: 'with experience',
-				className: 'nd-px-3 nd-py-1',
+				className: styles.dummyPadding,
 				suffixedComponent: ChevronRight,
 				children: [
 					{
 						key: '1-1-0',
 						prefixedComponent: <span className="pr-1">🏎️</span>,
 						label: '< 3 years',
-						className: 'px-3 py-1',
+						className: styles.dummyPadding,
 					},
 					{
 						key: '1-1-1',
 						prefixedComponent: <span className="pr-1">🏎️</span>,
 						label: '> 3 years',
-						className: 'px-3 py-1',
+						className: styles.dummyPadding,
 					},
 				],
 			},
@@ -47,60 +49,60 @@ const Menu: NestedDropdownStructure = [
 				key: '1-2',
 				prefixedComponent: SomePrefixedIcon,
 				label: 'senior',
-				className: 'px-3 py-1',
+				className: styles.dummyPadding,
 			},
 			{
 				key: '1-3',
 				prefixedComponent: SomePrefixedIcon,
 				label: 'master',
-				className: 'px-3 py-1',
+				className: styles.dummyPadding,
 			},
 		],
 	},
 	{
 		key: '2',
 		label: 'System administration',
-		className: 'px-3 py-1',
+		className: styles.dummyPadding,
 		isDisabled: true,
 	},
 	{
 		key: '3',
 		type: MenuItemType.Separator,
-		className: 'my-2 px-3 py-1',
+		className: styles.dummySeperator,
 	},
 	{
 		key: '4',
 		type: MenuItemType.Label,
 		label: 'With Headlines',
-		className: 'font-bold px-3 py-1',
+		className: styles.dummyLabel,
 	},
 	{
 		key: '5',
 		prefixedComponent: SomePrefixedIcon,
 		label: 'Programming languages',
-		className: 'px-3 py-1',
+		className: styles.dummyPadding,
 	},
 	{
 		key: '6',
 		prefixedComponent: SomePrefixedIcon,
 		label: 'Testing',
-		className: 'px-3 py-1',
+		className: styles.dummyPadding,
 		suffixedComponent: ChevronRight,
 		children: [
 			{
 				key: '6-0',
 				label: 'Jest',
-				className: 'px-3 py-1',
+				className: styles.dummyPadding,
 			},
 			{
 				key: '6-1',
 				label: 'PHPUnit',
-				className: 'px-3 py-1',
+				className: styles.dummyPadding,
 			},
 			{
 				key: '6-2',
 				label: 'Mockery',
-				className: 'px-3 py-1',
+				className: styles.dummyPadding,
 			},
 		],
 	},

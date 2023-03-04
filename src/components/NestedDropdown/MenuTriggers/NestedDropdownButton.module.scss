@@ -1,7 +1,13 @@
 .base {
-	@apply nd-p-0 nd-m-0 nd-w-full nd-flex nd-justify-start nd-h-auto nd-border-none nd-bg-white nd-whitespace-nowrap
+	all: unset;
+
+	@apply nd-inline-flex nd-cursor-pointer nd-bg-white nd-whitespace-nowrap nd-border-0
 }
 
 .disabled {
 	@apply nd-text-gray-300
+}
+
+.cursorDefault {
+	@apply nd-cursor-default
 }

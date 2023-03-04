@@ -3,12 +3,9 @@ import NestedDropdown from '@/components/NestedDropdown/NestedDropdown';
 import MenuStructure from '@/components/MenuStructure';
 import NestedDropdownButton from '@/components/NestedDropdown/MenuTriggers/NestedDropdownButton';
 
-// has to be in index.ts as well!
-import '@/components/NestedDropdown/styles.css';
+import styles from './Preview.module.scss';
 
-import styles from './ComponentWrapper.module.scss';
-
-const ComponentWrapper = (): ReactElement => {
+const Preview = (): ReactElement => {
 	return (
 		<>
 			<div className={styles.preview}>
@@ -43,4 +40,4 @@ const ComponentWrapper = (): ReactElement => {
 	);
 };
 
-export default ComponentWrapper;
+export default Preview;

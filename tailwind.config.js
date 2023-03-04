@@ -1,9 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    "./src/components/NestedDropdown/**/*.{ts,tsx}",
-  ],
-  prefix: "nd-",
+  jit: false,
+  content: ['./src/components/NestedDropdown/**/*.{ts,tsx}'],
   theme: {
     extend: {},
   },
@@ -11,4 +9,5 @@ module.exports = {
   corePlugins: {
     preflight: false,
   },
+  prefix: 'nd-'
 }

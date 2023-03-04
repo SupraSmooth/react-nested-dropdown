@@ -1,11 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import ComponentWrapper from '@/ComponentWrapper';
-
-import './index.css';
+import Preview from '@/Preview';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 	<React.StrictMode>
-		<ComponentWrapper />
+		<Preview />
 	</React.StrictMode>
 );

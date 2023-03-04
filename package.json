@@ -1,6 +1,6 @@
 {
   "name": "@suprasmooth/react-nested-dropdown",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": false,
   "description": "A simple react nested dropdown component",
   "keywords": [
@@ -20,29 +20,28 @@
     "type": "git",
     "url": "git+https://github.com/SupraSmooth/react-nested-dropdown.git"
   },
-  "license": "MIT License",
+  "license": "MIT",
   "author": "Alexander Bachmann",
   "sideEffects": false,
-  "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/index.es.js",
-      "export": "./dist/index.umd.js"
+      "require": "./dist/index.cjs.js",
+      "import": "./dist/index.es.js"
     },
     "./dist/style.css": "./dist/style.css"
   },
-  "main": "./dist/index.umd.js",
-  "module": "./dist/index.es.js",
-  "types": "./dist/index.d.ts",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "tsc && vite build",
+    "build": "run-p build:*",
+    "build:scripts": "vite build",
+    "build:types": "tsc --emitDeclarationOnly && tsc-alias",
     "dev": "vite",
-    "preview": "vite preview",
-    "sort": "npx sort-package-json",
-    "test": "test"
+    "sort-packages": "npx sort-package-json"
   },
   "devDependencies": {
     "@types/node": "^18.14.2",
@@ -60,16 +59,17 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "npm-run-all": "^4.1.5",
     "postcss": "^8.4.21",
-    "postcss-import": "^15.1.0",
     "prettier": "^2.8.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sass": "^1.58.3",
+    "tailwindcss": "^3.2.7",
+    "tsc-alias": "^1.8.2",
     "typed-scss-modules": "^7.0.2",
     "typescript": "^4.9.3",
-    "vite": "^4.1.0",
-    "vite-plugin-dts": "^2.0.2"
+    "vite": "^4.1.0"
   },
   "peerDependencies": {
     "react": "^18.2.0",

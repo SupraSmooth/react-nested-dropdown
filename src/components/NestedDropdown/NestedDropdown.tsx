@@ -15,7 +15,7 @@ const NestedDropdown = ({
 	children,
 }: PropsWithChildren<NestedDropdownProps>): ReactElement => {
 	return (
-		<div className={['nd-group', styles.wrapper, className].join(' ')}>
+		<div className={[styles.ndGroup, styles.wrapper, className].join(' ')}>
 			{children}
 
 			<NestedDropdownMenu menu={menu} />

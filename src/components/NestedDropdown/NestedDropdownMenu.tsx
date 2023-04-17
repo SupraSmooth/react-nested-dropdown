@@ -6,6 +6,7 @@ import {
 import NestedDropdownButton from '@/components/NestedDropdown/MenuTriggers/NestedDropdownButton';
 import MenuTypeSeparator from '@/components/NestedDropdown/MenuTypes/MenuTypeSeparator';
 import MenuTypeLabel from '@/components/NestedDropdown/MenuTypes/MenuTypeLabel';
+import mergeStrings from '@/components/Util/mergeStrings';
 
 import styles from './NestedDropdownMenu.module.scss';
 
@@ -31,29 +32,35 @@ const NestedDropdownMenu = ({
 		>
 			{menu?.map((menuItem) => {
 				const hasChildren = menuItem.children !== undefined;
+				const childrenStyle = hasChildren ? styles.relative : '';
 
 				switch (menuItem.type ?? MenuItemType.Link) {
 					case MenuItemType.Link:
 						return (
 							<li
-								className={[
+								className={mergeStrings([
 									styles.listItem,
-									hasChildren ? styles.relative : '',
-								].join(' ')}
+									childrenStyle,
+								])}
 								key={menuItem.key}
 							>
 								{!hasChildren && (
 									<NestedDropdownButton
-										className={menuItem.className}
+										className={mergeStrings([
+											styles.button,
+											menuItem.className,
+										])}
 										title={menuItem.tooltip}
 										isDisabled={menuItem.isDisabled}
 										href={menuItem.href}
 										onClick={menuItem.onClick}
 									>
 										{menuItem.prefixedComponent}
+
 										<div className={styles.label}>
 											{menuItem.label}
 										</div>
+
 										{menuItem.suffixedComponent}
 									</NestedDropdownButton>
 								)}
@@ -61,14 +68,19 @@ const NestedDropdownMenu = ({
 								{hasChildren && (
 									<>
 										<NestedDropdownButton
-											className={menuItem.className}
+											className={mergeStrings([
+												styles.button,
+												menuItem.className,
+											])}
 											title={menuItem.tooltip}
 											isDisabled={menuItem.isDisabled}
 										>
 											{menuItem.prefixedComponent}
+
 											<div className={styles.label}>
 												{menuItem.label}
 											</div>
+
 											{menuItem.suffixedComponent}
 										</NestedDropdownButton>
 

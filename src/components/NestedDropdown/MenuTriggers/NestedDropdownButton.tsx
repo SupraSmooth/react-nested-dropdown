@@ -1,4 +1,5 @@
 import { CSSProperties, PropsWithChildren, ReactElement } from 'react';
+import mergeStrings from '@/components/Util/mergeStrings';
 
 import styles from './NestedDropdownButton.module.scss';
 
@@ -20,7 +21,8 @@ const NestedDropdownButton = ({
 	onClick,
 	children,
 }: PropsWithChildren<NestedDropdownButtonProps>): ReactElement => {
-	const classNameBase = `${styles.base} ${isDisabled ? styles.disabled : ''}`;
+	const disabledStyle = !isDisabled ? '' : styles.disabled;
+	const cursorStyle = onClick ? '' : styles.cursorDefault;
 
 	const handleOnClick = (): void => {
 		if (isDisabled) {
@@ -33,7 +35,11 @@ const NestedDropdownButton = ({
 	if (href && !isDisabled) {
 		return (
 			<a
-				className={[classNameBase, className].join(' ')}
+				className={mergeStrings([
+					styles.base,
+					className,
+					disabledStyle,
+				])}
 				href={href}
 				title={title}
 				style={additionalStyles}
@@ -48,11 +54,12 @@ const NestedDropdownButton = ({
 		<button
 			type="button"
 			title={title}
-			className={[
-				classNameBase,
+			className={mergeStrings([
+				styles.base,
 				className,
-				onClick ? '' : styles.cursorDefault,
-			].join(' ')}
+				disabledStyle,
+				cursorStyle,
+			])}
 			style={additionalStyles}
 			aria-disabled={isDisabled}
 			disabled={isDisabled}

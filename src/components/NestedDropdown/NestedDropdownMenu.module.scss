@@ -4,7 +4,14 @@
   padding-inline-start: 0;
   padding-inline-end: 0;
 
-  @apply nd-hidden nd-bg-white nd-border nd-absolute nd-origin-top nd-list-none nd-m-0;
+  @apply
+  nd-hidden
+  nd-absolute
+  nd-origin-top
+}
+
+.button {
+  @apply nd-flex-1
 }
 
 .dropdownListSubmenu {
@@ -24,9 +31,9 @@
 }
 
 li > ul {
-  transform: translatex(100%) scale(0);
+  @apply nd-translate-x-full nd-scale-0
 }
 
 li:hover > ul {
-  transform: translatex(100%) scale(1);
+  @apply nd-translate-x-full nd-scale-100
 }

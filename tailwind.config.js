@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   jit: false,
@@ -7,7 +9,7 @@ module.exports = {
   },
   plugins: [],
   corePlugins: {
-    preflight: false,
+    preflight: process.env.RUN_PREFLIGHT === 'true' ? true : false,
   },
   prefix: 'nd-'
 }

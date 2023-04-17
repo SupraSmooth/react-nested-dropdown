@@ -1,7 +1,7 @@
 .base {
-	all: unset;
-
-	@apply nd-inline-flex nd-cursor-pointer nd-bg-white nd-whitespace-nowrap nd-border-0
+	@apply
+	nd-w-fit
+	nd-inline-flex
 }
 
 .disabled {

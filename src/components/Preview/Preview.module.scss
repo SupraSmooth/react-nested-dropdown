@@ -1,0 +1,38 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+body {
+  @apply
+  nd-bg-slate-200;
+
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  @apply
+  nd-w-full
+  nd-flex
+  nd-flex-col
+  nd-h-screen
+  nd-justify-evenly
+  nd-grid-cols-1
+  nd-grid-rows-2
+  nd-gap-y-5
+}
+
+.component {
+    @apply
+    nd-grid
+    nd-grid-cols-8
+    nd-gap-x-5
+    nd-ml-5
+}
+
+.additionalButtonStyles {
+   @apply
+   nd-border
+   nd-border-solid
+   nd-border-green-600
+   nd-bg-purple-300
+}

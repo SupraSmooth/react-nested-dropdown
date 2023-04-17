@@ -51,6 +51,14 @@ Play with the different properties to get the output you want. There are almost 
 
 > There is no limit on how many children you can pass to the NestedDropdown component.
 
+### Tailwindcss Preflight
+
+You can rename the `.env.skel` file to control tailwindcss's preflight functionality.
+This will add css resets to the development process and helps you to avoid unnecessary styles and overrides.
+
+We assume that every developer has some kind of "CSS Reset" in their own project.
+We try to set as little styles, overrides and classes as possible.
+
 ## Example
 
 You can pass your own children element to the `NestedDropdown` component or you can use the `NestedDropdownButton` component as the dropdown trigger element, as seen in the following example.

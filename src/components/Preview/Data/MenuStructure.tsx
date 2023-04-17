@@ -1,4 +1,7 @@
-import { NestedDropdownStructure, MenuItemType } from './NestedDropdown/types';
+import {
+	NestedDropdownStructure,
+	MenuItemType,
+} from '../../NestedDropdown/types';
 
 import styles from './MenuStructure.module.scss';
 

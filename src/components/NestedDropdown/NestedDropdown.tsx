@@ -19,7 +19,11 @@ const NestedDropdown = ({
 }: PropsWithChildren<NestedDropdownProps>): ReactElement => {
 	return (
 		<div
-			className={mergeStrings([styles.ndGroup, className])}
+			className={mergeStrings([
+				styles.ndGroup,
+				styles.wrapper,
+				className,
+			])}
 			style={additionalStyles}
 		>
 			{children}

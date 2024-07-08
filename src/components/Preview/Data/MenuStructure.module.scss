@@ -3,9 +3,9 @@
 }
 
 .dummySeperator {
-    @apply nd-my-2 nd-px-3 nd-border-black;
+    @apply nd-px-3 nd-border-black nd-bg-white;
 }
 
 .dummyLabel {
-     @apply nd-font-bold nd-px-3 nd-py-1;
+     @apply nd-font-bold nd-px-3 nd-py-1 nd-block nd-bg-white;
 }

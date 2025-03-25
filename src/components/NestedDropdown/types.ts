@@ -1,4 +1,4 @@
-import { Key } from 'react';
+import { JSX, Key } from 'react';
 
 export enum MenuItemType {
 	Link = 'LINK',

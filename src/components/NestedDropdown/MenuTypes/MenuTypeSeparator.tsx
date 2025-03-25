@@ -1,3 +1,4 @@
+import { JSX } from 'react';
 import { MenuItem } from '../types';
 
 type MenuTypeSeparatorProps = {
